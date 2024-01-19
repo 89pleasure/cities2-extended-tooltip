@@ -25,9 +25,9 @@
   "extendedtooltip.setting.enableMod": "Disable Mod",
   "extendedtooltip.setting.enableMod.description": "Disabilita la mod a livello globale",
   "extendedtooltip.setting.displayMode": "Modalità di visualizzazione",
-  "extendedtooltip.setting.displayMode.instant": "Immediato (predefinito)",
+  "extendedtooltip.setting.displayMode.instant": "Immediato",
   "extendedtooltip.setting.displayMode.delayed": "Ritardo",
-  "extendedtooltip.setting.displayMode.hotkey": "Tasto Hold (ALT)",
+  "extendedtooltip.setting.displayMode.hotkey": "Tasto Rapido",
   "extendedtooltip.setting.extendedLayout": "Layout esteso",
   "extendedtooltip.setting.extendedLayout.description": "Abilita un secondo layout per mostrare i tooltip in modo più organizzato",
   "extendedtooltip.setting.citizen.state": "Stato del cittadino",
@@ -92,5 +92,6 @@
   "extendedtooltip.setting.vehicle.driver.description": "Mostra le informazioni sul conducente del veicolo selezionato.",
   "extendedtooltip.setting.vehicle.garbage_truck.description": "Mostra la capacità di immondizia dei camion di immondizia selezionati.",
   "extendedtooltip.setting.vehicle.postvan.description": "Mostra la capacità di posta dei post furgoni selezionati.",
-  "extendedtooltip.setting.vehicle.passenger_detail.description": "Mostra informazioni dettagliate sui passeggeri del veicolo selezionato."
+  "extendedtooltip.setting.vehicle.passenger_detail.description": "Mostra informazioni dettagliate sui passeggeri del veicolo selezionato.",
+  "extendedtooltip.setting.displayMode.hotkey.description": "Il tasto di scelta rapida per attivare la visualizzazione del tooltip."
 }
