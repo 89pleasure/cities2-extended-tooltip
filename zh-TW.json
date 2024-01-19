@@ -93,5 +93,11 @@
   "extendedtooltip.setting.vehicle.garbage_truck.description": "Shows garbage capacity of the selected garbage trucks.",
   "extendedtooltip.setting.vehicle.postvan.description": "Shows mail capacity of the selected post vans.",
   "extendedtooltip.setting.vehicle.passenger_detail.description": "Shows detailed information about the passengers of the selected vehicle.",
-  "extendedtooltip.setting.displayMode.hotkey.description": "The hotkey to trigger the tooltip to show."
+  "extendedtooltip.setting.displayMode.hotkey.description": "The hotkey to trigger the tooltip to show.",
+  "extendedtooltip.ui.tab.tooltips": "Tooltips",
+  "extendedtooltip.ui.tab.tooltips.description": "Manage and customize the tooltips.",
+  "extendedtooltip.ui.on_off": "On/Off",
+  "extendedtooltip.ui.tab.settings": "Settings",
+  "extendedtooltip.ui.tab.about": "About",
+  "extendedtooltip.setting.growables.description": "Manage tooltips for zone buildings like residentials, commercials, offices and insdustrials."
 }
