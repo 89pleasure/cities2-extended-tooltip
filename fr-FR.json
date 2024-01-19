@@ -25,9 +25,9 @@
   "extendedtooltip.setting.enableMod": "Désactiver le Mod",
   "extendedtooltip.setting.enableMod.description": "Désactiver le mod globalement",
   "extendedtooltip.setting.displayMode": "Mode d'affichage",
-  "extendedtooltip.setting.displayMode.instant": "Instantané (par défaut)",
+  "extendedtooltip.setting.displayMode.instant": "Immédiat",
   "extendedtooltip.setting.displayMode.delayed": "Retardé",
-  "extendedtooltip.setting.displayMode.hotkey": "Maintenir la touche (ALT)",
+  "extendedtooltip.setting.displayMode.hotkey": "Raccourci",
   "extendedtooltip.setting.extendedLayout": "Disposition étendue",
   "extendedtooltip.setting.extendedLayout.description": "Active une deuxième mise en page pour afficher les infobulles de manière plus organisée.",
   "extendedtooltip.setting.citizen.state": "État du citoyen",
@@ -92,5 +92,6 @@
   "extendedtooltip.setting.vehicle.driver.description": "Affiche les informations du conducteur du véhicule sélectionné.",
   "extendedtooltip.setting.vehicle.garbage_truck.description": "Affiche la capacité des ordures des camions sélectionnés.",
   "extendedtooltip.setting.vehicle.postvan.description": "Affiche la capacité de courrier des fourgonnettes sélectionnées.",
-  "extendedtooltip.setting.vehicle.passenger_detail.description": "Affiche des informations détaillées sur les passagers du véhicule sélectionné."
+  "extendedtooltip.setting.vehicle.passenger_detail.description": "Affiche des informations détaillées sur les passagers du véhicule sélectionné.",
+  "extendedtooltip.setting.displayMode.hotkey.description": "La touche de raccourci pour déclencher l'affichage de l'infobulle."
 }
