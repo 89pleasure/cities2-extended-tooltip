@@ -25,9 +25,9 @@
   "extendedtooltip.setting.enableMod": "Wyłącz mod",
   "extendedtooltip.setting.enableMod.description": "Wyłącz mod globalnie.",
   "extendedtooltip.setting.displayMode": "Tryb wyświetlania",
-  "extendedtooltip.setting.displayMode.instant": "Natychmiastowy (domyślnie)",
+  "extendedtooltip.setting.displayMode.instant": "Natychmiastowo",
   "extendedtooltip.setting.displayMode.delayed": "Opóźniony",
-  "extendedtooltip.setting.displayMode.hotkey": "Przytrzymaj klawisz (ALT)",
+  "extendedtooltip.setting.displayMode.hotkey": "Klawisz Skrótu",
   "extendedtooltip.setting.extendedLayout": "Rozszerzony układ",
   "extendedtooltip.setting.extendedLayout.description": "Włącza drugi układ, aby wyświetlać podpowiedzi w bardziej uporządkowany sposób.",
   "extendedtooltip.setting.citizen.state": "Państwo obywatelskie",
@@ -92,5 +92,6 @@
   "extendedtooltip.setting.vehicle.driver.description": "Pokazuje informacje dla kierowcy wybranego pojazdu.",
   "extendedtooltip.setting.vehicle.garbage_truck.description": "Pokazuje pojemność śmieci wybranych samochodów dostawczych.",
   "extendedtooltip.setting.vehicle.postvan.description": "Pokazuje pojemność mailową wybranych vanów postów.",
-  "extendedtooltip.setting.vehicle.passenger_detail.description": "Pokazuje szczegółowe informacje o pasażerach wybranego pojazdu."
+  "extendedtooltip.setting.vehicle.passenger_detail.description": "Pokazuje szczegółowe informacje o pasażerach wybranego pojazdu.",
+  "extendedtooltip.setting.displayMode.hotkey.description": "Skrót klawiszowy do wyświetlenia podpowiedzi."
 }
