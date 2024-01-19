@@ -25,9 +25,9 @@
   "extendedtooltip.setting.enableMod": "Desativar Mod",
   "extendedtooltip.setting.enableMod.description": "Desativar o mod globalmente",
   "extendedtooltip.setting.displayMode": "Modo de exibição",
-  "extendedtooltip.setting.displayMode.instant": "Instantâneo (padrão)",
+  "extendedtooltip.setting.displayMode.instant": "Instante",
   "extendedtooltip.setting.displayMode.delayed": "Atrasado",
-  "extendedtooltip.setting.displayMode.hotkey": "Manter a tecla (ALT)",
+  "extendedtooltip.setting.displayMode.hotkey": "Tecla de Atalho",
   "extendedtooltip.setting.extendedLayout": "Layout estendido",
   "extendedtooltip.setting.extendedLayout.description": "Habilita um segundo layout para mostrar as dicas de ferramentas de forma mais organizada",
   "extendedtooltip.setting.citizen.state": "Estado do cidadão",
@@ -92,5 +92,6 @@
   "extendedtooltip.setting.vehicle.driver.description": "Mostra informações do motorista do veículo selecionado.",
   "extendedtooltip.setting.vehicle.garbage_truck.description": "Mostra a capacidade de lixo dos caminhões de lixo selecionados.",
   "extendedtooltip.setting.vehicle.postvan.description": "Mostra a capacidade do e-mail dos carrinhos de post selecionados.",
-  "extendedtooltip.setting.vehicle.passenger_detail.description": "Mostra informações detalhadas sobre os passageiros do veículo selecionado."
+  "extendedtooltip.setting.vehicle.passenger_detail.description": "Mostra informações detalhadas sobre os passageiros do veículo selecionado.",
+  "extendedtooltip.setting.displayMode.hotkey.description": "A tecla de atalho para acionar a dica para mostrar."
 }
