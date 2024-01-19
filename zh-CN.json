@@ -25,9 +25,9 @@
   "extendedtooltip.setting.enableMod": "Enable Mod",
   "extendedtooltip.setting.enableMod.description": "Enable/Disable the mod globally.",
   "extendedtooltip.setting.displayMode": "显示模式",
-  "extendedtooltip.setting.displayMode.instant": "即时（默认）",
+  "extendedtooltip.setting.displayMode.instant": "Instant",
   "extendedtooltip.setting.displayMode.delayed": "延迟",
-  "extendedtooltip.setting.displayMode.hotkey": "Hotkey",
+  "extendedtooltip.setting.displayMode.hotkey": "热键",
   "extendedtooltip.setting.extendedLayout": "扩展布局",
   "extendedtooltip.setting.extendedLayout.description": "启用第二种布局，以便更有条理地显示工具提示。",
   "extendedtooltip.setting.citizen.state": "公民国家",
@@ -92,5 +92,6 @@
   "extendedtooltip.setting.vehicle.driver.description": "Shows driver information of the selected vehicle.",
   "extendedtooltip.setting.vehicle.garbage_truck.description": "Shows garbage capacity of the selected garbage trucks.",
   "extendedtooltip.setting.vehicle.postvan.description": "Shows mail capacity of the selected post vans.",
-  "extendedtooltip.setting.vehicle.passenger_detail.description": "Shows detailed information about the passengers of the selected vehicle."
+  "extendedtooltip.setting.vehicle.passenger_detail.description": "Shows detailed information about the passengers of the selected vehicle.",
+  "extendedtooltip.setting.displayMode.hotkey.description": "The hotkey to trigger the tooltip to show."
 }
