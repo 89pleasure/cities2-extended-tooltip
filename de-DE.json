@@ -25,9 +25,9 @@
   "extendedtooltip.setting.enableMod": "Mod aktivieren",
   "extendedtooltip.setting.enableMod.description": "Aktiviere/Deaktiviert die Mod im Spiel.",
   "extendedtooltip.setting.displayMode": "Anzeigemodus",
-  "extendedtooltip.setting.displayMode.instant": "Sofort (Standard)",
+  "extendedtooltip.setting.displayMode.instant": "Sofort",
   "extendedtooltip.setting.displayMode.delayed": "Verzögert",
-  "extendedtooltip.setting.displayMode.hotkey": "Taste halten (ALT)",
+  "extendedtooltip.setting.displayMode.hotkey": "Hotkey",
   "extendedtooltip.setting.extendedLayout": "Erweitertes Layout",
   "extendedtooltip.setting.extendedLayout.description": "Aktiviert ein weiteres Layout für aufgeräumtere Tooltips.",
   "extendedtooltip.setting.citizen.state": "Zustand",
@@ -92,5 +92,6 @@
   "extendedtooltip.setting.vehicle.driver.description": "Zeigt Fahrerinformationen des ausgewählten Fahrzeugs.",
   "extendedtooltip.setting.vehicle.garbage_truck.description": "Zeigt die Müllkapazität des ausgewählten Müllwagens an.",
   "extendedtooltip.setting.vehicle.postvan.description": "Zeigt die Kapazität des ausgewählten Postwagens an.",
-  "extendedtooltip.setting.vehicle.passenger_detail.description": "Zeigt detaillierte Informationen über die Fahrgäste des ausgewählten Fahrzeugs."
+  "extendedtooltip.setting.vehicle.passenger_detail.description": "Zeigt detaillierte Informationen über die Fahrgäste des ausgewählten Fahrzeugs.",
+  "extendedtooltip.setting.displayMode.hotkey.description": "Der Hotkey, mit dem der Tooltip angezeigt wird."
 }
