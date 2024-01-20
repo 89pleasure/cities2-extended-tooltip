@@ -99,5 +99,7 @@
   "extendedtooltip.ui.on_off": "An/Aus",
   "extendedtooltip.ui.tab.settings": "Einstellungen",
   "extendedtooltip.ui.tab.about": "Über",
-  "extendedtooltip.setting.growables.description": "Verwalte Tooltips für Gebäudezonen wie Wohn-, Gewerbe-, Büro- und Industriebauten."
+  "extendedtooltip.setting.growables.description": "Verwalte Tooltips für Gebäudezonen wie Wohn-, Gewerbe-, Büro- und Industriebauten.",
+  "setting.displayMode.delay.on_movables": "On moveables",
+  "setting.displayMode.delay.on_movables.description": "Also activates the delay on moveable entities like citizens or vehicles."
 }
