@@ -99,5 +99,7 @@
   "extendedtooltip.ui.on_off": "Ativado/Desligado",
   "extendedtooltip.ui.tab.settings": "Configurações",
   "extendedtooltip.ui.tab.about": "Sobre",
-  "extendedtooltip.setting.growables.description": "Gerencie dicas de ferramentas para edifícios de zonas como residenciais, comerciais, escritórios e industriais."
+  "extendedtooltip.setting.growables.description": "Gerencie dicas de ferramentas para edifícios de zonas como residenciais, comerciais, escritórios e industriais.",
+  "setting.displayMode.delay.on_movables": "On moveables",
+  "setting.displayMode.delay.on_movables.description": "Also activates the delay on moveable entities like citizens or vehicles."
 }
