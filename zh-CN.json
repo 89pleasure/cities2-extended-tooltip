@@ -100,6 +100,6 @@
   "extendedtooltip.ui.tab.settings": "设置",
   "extendedtooltip.ui.tab.about": "关于",
   "extendedtooltip.setting.growables.description": "管理区内建筑物的工具提示，如住宅、商品、办公室和花园。",
-  "setting.displayMode.delay.on_movables": "On moveables",
-  "setting.displayMode.delay.on_movables.description": "Also activates the delay on moveable entities like citizens or vehicles."
+  "setting.displayMode.delay.on_moveables": "关于可移动设备",
+  "setting.displayMode.delay.on_moveables.description": "还能激活市民或车辆等可移动实体的延迟。"
 }
