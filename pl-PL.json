@@ -100,6 +100,6 @@
   "extendedtooltip.ui.tab.settings": "Ustawienia",
   "extendedtooltip.ui.tab.about": "O programie",
   "extendedtooltip.setting.growables.description": "Zarządzaj podpowiedziami dla budynków strefowych, takich jak budynki mieszkalne, komercyjne, biurowe i przemysłowe.",
-  "setting.displayMode.delay.on_moveables": "Na ruchomościach",
-  "setting.displayMode.delay.on_moveables.description": "Aktywuje również opóźnienie dla ruchomych jednostek, takich jak obywatele lub pojazdy."
+  "extendedtooltip.setting.displayMode.delay.on_moveables": "Na ruchomościach",
+  "extendedtooltip.setting.displayMode.delay.on_moveables.description": "Aktywuje również opóźnienie dla ruchomych jednostek, takich jak obywatele lub pojazdy."
 }
