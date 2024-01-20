@@ -99,5 +99,7 @@
   "extendedtooltip.ui.on_off": "Włącz/Wył.",
   "extendedtooltip.ui.tab.settings": "Ustawienia",
   "extendedtooltip.ui.tab.about": "O programie",
-  "extendedtooltip.setting.growables.description": "Zarządzaj podpowiedziami dla budynków strefowych, takich jak budynki mieszkalne, komercyjne, biurowe i przemysłowe."
+  "extendedtooltip.setting.growables.description": "Zarządzaj podpowiedziami dla budynków strefowych, takich jak budynki mieszkalne, komercyjne, biurowe i przemysłowe.",
+  "setting.displayMode.delay.on_movables": "On moveables",
+  "setting.displayMode.delay.on_movables.description": "Also activates the delay on moveable entities like citizens or vehicles."
 }
