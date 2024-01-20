@@ -100,6 +100,6 @@
   "extendedtooltip.ui.tab.settings": "설정",
   "extendedtooltip.ui.tab.about": "정보",
   "extendedtooltip.setting.growables.description": "주거, 상업, 사무실, 산업 등의 구역 건물에 대한 툴팁을 관리합니다.",
-  "setting.displayMode.delay.on_movables": "On moveables",
-  "setting.displayMode.delay.on_movables.description": "Also activates the delay on moveable entities like citizens or vehicles."
+  "setting.displayMode.delay.on_movables": "이동식",
+  "setting.displayMode.delay.on_movables.description": "또한 시민이나 차량과 같은 이동 가능한 개체에 대한 지연을 활성화합니다."
 }
