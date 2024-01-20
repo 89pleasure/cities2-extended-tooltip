@@ -100,6 +100,6 @@
   "extendedtooltip.ui.tab.settings": "Настройки",
   "extendedtooltip.ui.tab.about": "О программе",
   "extendedtooltip.setting.growables.description": "Управление подсказками для зданий зон, таких как жилые дома, реклама, офисы и интуиции.",
-  "setting.displayMode.delay.on_moveables": "О движимом имуществе",
-  "setting.displayMode.delay.on_moveables.description": "Также активирует задержку на подвижных сущностях, таких как граждане или транспортные средства."
+  "extendedtooltip.setting.displayMode.delay.on_moveables": "О движимом имуществе",
+  "extendedtooltip.setting.displayMode.delay.on_moveables.description": "Также активирует задержку на подвижных сущностях, таких как граждане или транспортные средства."
 }
