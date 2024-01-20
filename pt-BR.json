@@ -100,6 +100,6 @@
   "extendedtooltip.ui.tab.settings": "Configurações",
   "extendedtooltip.ui.tab.about": "Sobre",
   "extendedtooltip.setting.growables.description": "Gerencie dicas de ferramentas para edifícios de zonas como residenciais, comerciais, escritórios e industriais.",
-  "setting.displayMode.delay.on_moveables": "Em bens móveis",
-  "setting.displayMode.delay.on_moveables.description": "Também ativa o atraso em entidades móveis, como cidadãos ou veículos."
+  "extendedtooltip.setting.displayMode.delay.on_moveables": "Em bens móveis",
+  "extendedtooltip.setting.displayMode.delay.on_moveables.description": "Também ativa o atraso em entidades móveis, como cidadãos ou veículos."
 }
