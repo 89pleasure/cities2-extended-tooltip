@@ -100,6 +100,6 @@
   "extendedtooltip.ui.tab.settings": "Réglages",
   "extendedtooltip.ui.tab.about": "À propos de",
   "extendedtooltip.setting.growables.description": "Gérer les info-bulles pour les bâtiments de zone comme les résidents, les publicités, les bureaux et les industriels.",
-  "setting.displayMode.delay.on_movables": "Sur les biens meubles",
-  "setting.displayMode.delay.on_movables.description": "Active également le délai sur les entités mobiles comme les citoyens ou les véhicules."
+  "setting.displayMode.delay.on_moveables": "Sur les biens meubles",
+  "setting.displayMode.delay.on_moveables.description": "Active également le délai sur les entités mobiles comme les citoyens ou les véhicules."
 }
