@@ -99,5 +99,7 @@
   "extendedtooltip.ui.on_off": "开/关",
   "extendedtooltip.ui.tab.settings": "设置",
   "extendedtooltip.ui.tab.about": "关于",
-  "extendedtooltip.setting.growables.description": "管理区内建筑物的工具提示，如住宅、商品、办公室和花园。"
+  "extendedtooltip.setting.growables.description": "管理区内建筑物的工具提示，如住宅、商品、办公室和花园。",
+  "setting.displayMode.delay.on_movables": "On moveables",
+  "setting.displayMode.delay.on_movables.description": "Also activates the delay on moveable entities like citizens or vehicles."
 }
