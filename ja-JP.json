@@ -99,5 +99,7 @@
   "extendedtooltip.ui.on_off": "オン/オフ",
   "extendedtooltip.ui.tab.settings": "設定",
   "extendedtooltip.ui.tab.about": "About",
-  "extendedtooltip.setting.growables.description": "住宅、コマーシャル、オフィス、そして名声などのゾーンの建物のためのツールチップを管理します。"
+  "extendedtooltip.setting.growables.description": "住宅、コマーシャル、オフィス、そして名声などのゾーンの建物のためのツールチップを管理します。",
+  "setting.displayMode.delay.on_movables": "On moveables",
+  "setting.displayMode.delay.on_movables.description": "Also activates the delay on moveable entities like citizens or vehicles."
 }
