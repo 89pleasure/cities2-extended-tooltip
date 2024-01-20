@@ -100,6 +100,6 @@
   "extendedtooltip.ui.tab.settings": "Ajustes",
   "extendedtooltip.ui.tab.about": "Acerca de",
   "extendedtooltip.setting.growables.description": "Gestiona los tooltips de los edificios zonales como residenciales, comerciales, oficinas e insdustriales.",
-  "setting.displayMode.delay.on_moveables": "Sobre los bienes muebles",
-  "setting.displayMode.delay.on_moveables.description": "También activa el retardo en entidades móviles como ciudadanos o vehículos."
+  "extendedtooltip.setting.displayMode.delay.on_moveables": "Sobre los bienes muebles",
+  "extendedtooltip.setting.displayMode.delay.on_moveables.description": "También activa el retardo en entidades móviles como ciudadanos o vehículos."
 }
