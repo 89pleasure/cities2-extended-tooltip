@@ -100,6 +100,6 @@
   "extendedtooltip.ui.tab.settings": "設定",
   "extendedtooltip.ui.tab.about": "About",
   "extendedtooltip.setting.growables.description": "住宅、コマーシャル、オフィス、そして名声などのゾーンの建物のためのツールチップを管理します。",
-  "setting.displayMode.delay.on_movables": "ムーバブルについて",
-  "setting.displayMode.delay.on_movables.description": "また、市民や車のような移動可能なエンティティのディレイを有効にする。"
+  "setting.displayMode.delay.on_moveables": "ムーバブルについて",
+  "setting.displayMode.delay.on_moveables.description": "また、市民や車のような移動可能なエンティティのディレイを有効にする。"
 }
