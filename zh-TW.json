@@ -100,6 +100,6 @@
   "extendedtooltip.ui.tab.settings": "設定",
   "extendedtooltip.ui.tab.about": "關於",
   "extendedtooltip.setting.growables.description": "設定指定分區建物顯示的額外資訊（住宅、商業、辦公、工業）",
-  "setting.displayMode.delay.on_movables": "On moveables",
+  "setting.displayMode.delay.on_movables": "移動實體延遲顯示",
   "setting.displayMode.delay.on_movables.description": "Also activates the delay on moveable entities like citizens or vehicles."
 }
