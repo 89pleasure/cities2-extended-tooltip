@@ -24,6 +24,7 @@ namespace ExtendedTooltip.Settings
         // GENERAL
         public bool ShowEfficiency { get; set; } = true;
         public bool ShowLandValue { get; set; } = true;
+        public bool ShowMail { get; set; } = true;
 
         // COMPANY
         public bool ShowCompany { get; set; } = true;

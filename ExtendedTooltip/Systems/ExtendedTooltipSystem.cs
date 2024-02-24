@@ -62,6 +62,7 @@ namespace ExtendedTooltip.Systems
         private EmployeesTooltipBuilder m_EmployeesTooltipBuilder;
         private EducationTooltipBuilder m_EducationTooltipBuilder;
         private CompanyTooltipBuilder m_CompanyTooltipBuilder;
+        private MailTooltipBuilder m_MailTooltipBuilder;
 
         [Preserve]
         public ExtendedTooltipSystem()
@@ -94,6 +95,7 @@ namespace ExtendedTooltip.Systems
             m_EmployeesTooltipBuilder = new(EntityManager, m_CustomTranslationSystem);
             m_EducationTooltipBuilder = new(EntityManager, m_CustomTranslationSystem);
             m_CompanyTooltipBuilder = new(EntityManager, m_CustomTranslationSystem);
+            m_MailTooltipBuilder = new(EntityManager, m_CustomTranslationSystem);
 
             m_TooltipGroup = new TooltipGroup()
             {
@@ -242,6 +244,12 @@ namespace ExtendedTooltip.Systems
                 return; // don't have any other info. No need to check for other components
             }
 
+            // MAIL TOOLTIP
+            if (modSettings.ShowMail)
+            {
+                m_MailTooltipBuilder.Build(selectedEntity, prefab, m_TooltipGroup);
+            }
+
             // SPAWNABLES TOOLTIP
             bool IsMixed = IsMixedBuilding(prefab);
             if (modSettings.ShowGrowables && HasSpawnableBuildingData(selectedEntity, prefab, out int buildingLevel, out int currentCondition, out int levelingCost, out SpawnableBuildingData spawnableData))
@@ -282,7 +290,7 @@ namespace ExtendedTooltip.Systems
             {
                 m_EmployeesTooltipBuilder.Build(selectedEntity, prefab, m_TooltipGroup);
             }
-            
+
             // EDUCATION TOOLTIP
             if (modSettings.ShowEducation && EntityManager.HasComponent<Game.Buildings.School>(selectedEntity))
             {

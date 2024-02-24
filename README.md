@@ -24,6 +24,7 @@ Shows the following information on tooltips:
 - Roads: Length, Upkeep, Conditions
 - Zones: Zone info, Households, Residents, Pets, Rent, Balance ect.
 - Vehicles: Driver, Passengers, Garbage Trucks info, Postvan info
+- Postal: Producers, Facility info, Vehicle info, Storage etc.
 - many more
 
 ## Community

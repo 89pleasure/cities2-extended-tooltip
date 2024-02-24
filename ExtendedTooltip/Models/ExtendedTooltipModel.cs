@@ -36,7 +36,8 @@ namespace ExtendedTooltip.Models
         // GENERAL
         public bool ShowEfficiency { get; set; } = true;
         public bool ShowLandValue { get; set; } = true;
-        
+        public bool ShowMail { get; set; } = true;
+
         // COMPANY
         public bool ShowCompany { get; set; } = true;
         public bool ShowEmployee { get; set; } = true;
