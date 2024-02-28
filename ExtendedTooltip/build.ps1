@@ -26,7 +26,7 @@ try {
 if (Test-Path "$pluginPath\language_pack.data" -PathType Leaf) {
 	Remove-Item -Path "$pluginPath\language_pack.data" -Force
 }
-Rename-Item -Path "$pluginPath\language_pack.zip" -NewName "$pluginPath\language_pack.data"
+Move-Item -Path "$pluginPath\language_pack.zip" -Destination "$pluginPath\language_pack.data"
 
 try {
 	$files = Get-ChildItem -Path $pluginPath

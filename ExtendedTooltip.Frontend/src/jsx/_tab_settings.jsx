@@ -344,6 +344,41 @@ const TabSettings = ({ react, model, update, trigger }) => {
                     </div>
                 </Grid>
             </EtSettingsBox>
+        },
+        {
+            name: "postal",
+            content: <EtSettingsBox title={translations.postal} description={translations.postalDescription} icon="coui://GameUI/Media/Game/Icons/PostService.svg">
+                <Grid>
+                    <div className="col-6">
+                        <div className="my-3">
+                            <FormCheckBox className="mb-2" checked={model.ShowMailProducers} label={translations.mailProducers} onToggle={value => onSettingsToggle("ShowMailProducers", value)} disabled={!model.IsEnabled} />
+                            <p className="text-muted fs-sm">{translations.mailProducersDescription}</p>
+                        </div>
+                        <div className="my-3">
+                            <FormCheckBox className="mb-2" checked={model.ShowMailResources} label={translations.mailResources} onToggle={value => onSettingsToggle("ShowMailResources", value)} disabled={!model.IsEnabled} />
+                            <p className="text-muted fs-sm">{translations.mailResourcesDescription}</p>
+                        </div>
+                        <div className="my-3">
+                            <FormCheckBox className="mb-2" checked={model.ShowMailVehicles} label={translations.mailVehicles} onToggle={value => onSettingsToggle("ShowMailVehicles", value)} disabled={!model.IsEnabled} />
+                            <p className="text-muted fs-sm">{translations.mailVehiclesDescription}</p>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="my-3">
+                            <FormCheckBox className="mb-2" checked={model.ShowMailStorage} label={translations.mailStorage} onToggle={value => onSettingsToggle("ShowMailStorage", value)} disabled={!model.IsEnabled} />
+                            <p className="text-muted fs-sm">{translations.mailStorageDescription}</p>
+                        </div>
+                        <div className="my-3">
+                            <FormCheckBox className="mb-2" checked={model.ShowMailFunctions} label={translations.mailFunctions} onToggle={value => onSettingsToggle("ShowMailFunctions", value)} disabled={!model.IsEnabled} />
+                            <p className="text-muted fs-sm">{translations.mailFunctionsDescription}</p>
+                        </div>
+                        <div className="my-3">
+                            <FormCheckBox className="mb-2" checked={model.ShowMailBoxes} label={translations.mailBoxes} onToggle={value => onSettingsToggle("ShowMailBoxes", value)} disabled={!model.IsEnabled} />
+                            <p className="text-muted fs-sm">{translations.mailBoxesDescription}</p>
+                        </div>
+                    </div>
+                </Grid>
+            </EtSettingsBox>
         }
     ];
 
@@ -416,6 +451,7 @@ const TabSettings = ({ react, model, update, trigger }) => {
                             {menuButton("publictransport", translations.publicTransport, "coui://GameUI/Media/Game/Icons/TransportationOverview.svg")}
                             {menuButton("roads", translations.road, "coui://GameUI/Media/Game/Icons/Roads.svg")}
                             {menuButton("vehicles", translations.vehicle, "coui://GameUI/Media/Game/Icons/Traffic.svg")}
+                            {menuButton("postal", translations.postal, "coui://GameUI/Media/Game/Icons/PostService.svg")}
                         </div>
                     </div>
                     <div class="col-9">

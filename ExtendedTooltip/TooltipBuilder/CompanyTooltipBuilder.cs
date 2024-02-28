@@ -22,7 +22,7 @@ namespace ExtendedTooltip.TooltipBuilder
             UnityEngine.Debug.Log($"Created CompanyTooltipBuilder.");
         }
 
-        public void Build(Entity companyEntity, TooltipGroup tooltipGroup, TooltipGroup secondaryTooltipGroup, bool IsMixed)
+        public void Build(Entity companyEntity, TooltipGroup tooltipGroup)
         {
             ModSettings modSettings = m_ExtendedTooltipSystem.m_LocalSettings.ModSettings;
             // Company output tooltip
@@ -41,7 +41,7 @@ namespace ExtendedTooltip.TooltipBuilder
                     value = $"{profitabilityLabel}: {profitabilityValue}",
                     color = TooltipColor.Info,
                 };
-                (modSettings.UseExtendedLayout && !IsMixed ? secondaryTooltipGroup : tooltipGroup).children.Add(profitabilityTooltip);
+                tooltipGroup.children.Add(profitabilityTooltip);
             }
 
             // Company resource section
@@ -55,15 +55,15 @@ namespace ExtendedTooltip.TooltipBuilder
 
                     if (input1 > 0 && input1 != Resource.NoResource && input1 != output)
                     {
-                        (modSettings.UseExtendedLayout && !IsMixed ? secondaryTooltipGroup : tooltipGroup).children.Add(CreateResourceTooltip(companyEntity, companyEntityPrefab, resources, input1));
+                        tooltipGroup.children.Add(CreateResourceTooltip(companyEntity, companyEntityPrefab, resources, input1));
                     }
 
                     if (input2 > 0 && input2 != Resource.NoResource && input2 != output)
                     {
-                        (modSettings.UseExtendedLayout && !IsMixed ? secondaryTooltipGroup : tooltipGroup).children.Add(CreateResourceTooltip(companyEntity, companyEntityPrefab, resources, input2));
+                        tooltipGroup.children.Add(CreateResourceTooltip(companyEntity, companyEntityPrefab, resources, input2));
                     }
 
-                    (modSettings.UseExtendedLayout && !IsMixed ? secondaryTooltipGroup : tooltipGroup).children.Add(CreateResourceTooltip(companyEntity, companyEntityPrefab, resources, output, true));
+                    tooltipGroup.children.Add(CreateResourceTooltip(companyEntity, companyEntityPrefab, resources, output, true));
                 }
 
                 // Company money balance
@@ -85,7 +85,7 @@ namespace ExtendedTooltip.TooltipBuilder
                                 icon = "Media/Game/Icons/Money.svg",
                                 color = companyBalance < 0 ? TooltipColor.Error : TooltipColor.Info,
                             };
-                            (modSettings.UseExtendedLayout && !IsMixed ? secondaryTooltipGroup : tooltipGroup).children.Add(companyBalanceTooltip);
+                            tooltipGroup.children.Add(companyBalanceTooltip);
 
                             break;
                         }
@@ -112,7 +112,7 @@ namespace ExtendedTooltip.TooltipBuilder
                     value = $"{rentLabel}: {rentValue}",
                     color = TooltipColor.Info,
                 };
-                (modSettings.UseExtendedLayout && !IsMixed ? secondaryTooltipGroup : tooltipGroup).children.Add(rentTooltip);
+                tooltipGroup.children.Add(rentTooltip);
             }
         }
 

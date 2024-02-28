@@ -62,6 +62,7 @@ namespace ExtendedTooltip.Systems
         private EmployeesTooltipBuilder m_EmployeesTooltipBuilder;
         private EducationTooltipBuilder m_EducationTooltipBuilder;
         private CompanyTooltipBuilder m_CompanyTooltipBuilder;
+        private MailTooltipBuilder m_MailTooltipBuilder;
 
         [Preserve]
         public ExtendedTooltipSystem()
@@ -94,6 +95,7 @@ namespace ExtendedTooltip.Systems
             m_EmployeesTooltipBuilder = new(EntityManager, m_CustomTranslationSystem);
             m_EducationTooltipBuilder = new(EntityManager, m_CustomTranslationSystem);
             m_CompanyTooltipBuilder = new(EntityManager, m_CustomTranslationSystem);
+            m_MailTooltipBuilder = new(EntityManager, m_CustomTranslationSystem);
 
             m_TooltipGroup = new TooltipGroup()
             {
@@ -159,6 +161,8 @@ namespace ExtendedTooltip.Systems
                             )
                             {
                                 CreateExtendedTooltips(entity, prefab);
+                                if (modSettings.UseExtendedLayout)
+                                    DistributeSecondaryTooltipGroup();
                                 foreach (var tooltip in m_TooltipGroup.children)
                                 {
                                     AddMouseTooltip(tooltip);
@@ -223,7 +227,7 @@ namespace ExtendedTooltip.Systems
             if (modSettings.ShowCitizen && EntityManager.TryGetComponent<Citizen>(selectedEntity, out var citizen))
             {
                 CitizenHappinessParameterData citizenHappinessParameters = m_CitizenHappinessParameterDataQuery.GetSingleton<CitizenHappinessParameterData>();
-                m_CitizenTooltipBuilder.Build(selectedEntity, citizen, citizenHappinessParameters, m_TooltipGroup, m_SecondaryTooltipGroup);
+                m_CitizenTooltipBuilder.Build(selectedEntity, citizen, citizenHappinessParameters, m_TooltipGroup);
 
                 return; // don't have any other info. No need to check for other components
             }
@@ -242,12 +246,31 @@ namespace ExtendedTooltip.Systems
                 return; // don't have any other info. No need to check for other components
             }
 
+            // TOOLTIP FOR ALL POST PRODUCERS
+            if (modSettings.ShowMailProducers)
+            {
+                m_MailTooltipBuilder.BuildForProducer(selectedEntity, prefab, m_TooltipGroup);
+            }
+            // TOOLTIP FOR OWNED POST VEHICLES
+            if (modSettings.ShowMailResources || modSettings.ShowMailVehicles ||
+                modSettings.ShowMailStorage || modSettings.ShowMailFunctions)
+            {
+                m_MailTooltipBuilder.BuildForMailService(selectedEntity, prefab, m_TooltipGroup,
+                    modSettings.ShowMailResources, modSettings.ShowMailVehicles,
+                    modSettings.ShowMailStorage, modSettings.ShowMailFunctions);
+            }
+            // TOOLTIP FOR ALL MAIL-BOX
+            // E.G. POST-OFFICES ALSO HAVE ONE
+            if (modSettings.ShowMailBoxes)
+            {
+                m_MailTooltipBuilder.BuildForMailBox(selectedEntity, prefab, m_TooltipGroup);
+            }
+
             // SPAWNABLES TOOLTIP
-            bool IsMixed = IsMixedBuilding(prefab);
             if (modSettings.ShowGrowables && HasSpawnableBuildingData(selectedEntity, prefab, out int buildingLevel, out int currentCondition, out int levelingCost, out SpawnableBuildingData spawnableData))
             {
                 CitizenHappinessParameterData citizenHappinessParameters = m_CitizenHappinessParameterDataQuery.GetSingleton<CitizenHappinessParameterData>();
-                m_SpawnablesTooltipBuilder.Build(m_DefaultTool, IsMixed, selectedEntity, prefab, buildingLevel, currentCondition, levelingCost, spawnableData, citizenHappinessParameters, m_TooltipGroup, m_SecondaryTooltipGroup);
+                m_SpawnablesTooltipBuilder.Build(m_DefaultTool, selectedEntity, prefab, buildingLevel, currentCondition, levelingCost, spawnableData, citizenHappinessParameters, m_TooltipGroup);
             }
 
             // EFFICIENCY TOOLTIP
@@ -282,7 +305,7 @@ namespace ExtendedTooltip.Systems
             {
                 m_EmployeesTooltipBuilder.Build(selectedEntity, prefab, m_TooltipGroup);
             }
-            
+
             // EDUCATION TOOLTIP
             if (modSettings.ShowEducation && EntityManager.HasComponent<Game.Buildings.School>(selectedEntity))
             {
@@ -292,7 +315,7 @@ namespace ExtendedTooltip.Systems
             // COMPANY (Office, Industrial, Commercial) TOOLTIP
             if (CompanyUIUtils.HasCompany(EntityManager, selectedEntity, prefab, out Entity company))
             {
-                m_CompanyTooltipBuilder.Build(company, m_TooltipGroup, m_SecondaryTooltipGroup, IsMixed);
+                m_CompanyTooltipBuilder.Build(company, m_TooltipGroup);
             }
         }
 
@@ -304,11 +327,11 @@ namespace ExtendedTooltip.Systems
                 (!CompanyUIUtils.HasCompany(EntityManager, selectedEntity, selectedPrefab, out Entity entity) || entity != Entity.Null);
         }
 
-        private bool IsMixedBuilding(Entity prefab)
-        {
-            BuildingPropertyData buildingPropertyData = EntityManager.GetComponentData<BuildingPropertyData>(prefab);
-            return buildingPropertyData.CountProperties(AreaType.Residential) > 0 && buildingPropertyData.CountProperties(AreaType.Commercial) > 0;
-        }
+        // private bool IsMixedBuilding(Entity prefab)
+        // {
+        //     BuildingPropertyData buildingPropertyData = EntityManager.GetComponentData<BuildingPropertyData>(prefab);
+        //     return buildingPropertyData.CountProperties(AreaType.Residential) > 0 && buildingPropertyData.CountProperties(AreaType.Commercial) > 0;
+        // }
 
         private bool HasEmployees(Entity entity, Entity prefab)
         {
@@ -394,6 +417,21 @@ namespace ExtendedTooltip.Systems
             }
 
             return m_ToolSystem.activeInfoview.name.Equals("Electricity".Trim()) || m_ToolSystem.activeInfoview.name.Equals("WaterPipes".Trim());
+        }
+
+        private void DistributeSecondaryTooltipGroup()
+        {
+            // Start distributing after 5 single items
+            if (m_TooltipGroup.children.Count > 5)
+            {
+                int center = m_TooltipGroup.children.Count / 2;
+                while (m_TooltipGroup.children.Count > center)
+                {
+                    var tooltip = m_TooltipGroup.children[center];
+                    m_SecondaryTooltipGroup.children.Add(tooltip);
+                    m_TooltipGroup.children.RemoveAt(center);
+                }
+            }
         }
 
         private void UpdateSecondaryTooltipGroup()
