@@ -83,7 +83,7 @@ namespace Game.UI.Tooltip
                     if (modSettings.ShowGrowables && HasSpawnableBuildingData(selectedEntity, prefab, out int buildingLevel, out int currentCondition, out int levelingCost, out SpawnableBuildingData spawnableData))
                     {
                         CitizenHappinessParameterData citizenHappinessParameters = m_CitizenHappinessParameterDataQuery.GetSingleton<CitizenHappinessParameterData>();
-                        m_SpawnablesTooltipBuilder.Build(m_BulldozeTool, false, selectedEntity, prefab, buildingLevel, currentCondition, levelingCost, spawnableData, citizenHappinessParameters, m_TooltipGroup, m_TooltipGroup);
+                        m_SpawnablesTooltipBuilder.Build(m_BulldozeTool, selectedEntity, prefab, buildingLevel, currentCondition, levelingCost, spawnableData, citizenHappinessParameters, m_TooltipGroup);
                     }
                 }
 

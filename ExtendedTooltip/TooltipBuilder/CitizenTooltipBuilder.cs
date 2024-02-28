@@ -17,7 +17,7 @@ namespace ExtendedTooltip.TooltipBuilder
             UnityEngine.Debug.Log($"Created CitizenTooltipBuilder.");
         }
 
-        public void Build(Entity entity, Citizen citizen, CitizenHappinessParameterData citizenHappinessParameters, TooltipGroup tooltipGroup, TooltipGroup secondaryTooltipGroup)
+        public void Build(Entity entity, Citizen citizen, CitizenHappinessParameterData citizenHappinessParameters, TooltipGroup tooltipGroup)
         {
             ModSettings modSettings = m_ExtendedTooltipSystem.m_LocalSettings.ModSettings;
 
@@ -58,7 +58,7 @@ namespace ExtendedTooltip.TooltipBuilder
                         value = $"{citizenTypeValue}",
                         color = TooltipColor.Info,
                     };
-                    (modSettings.UseExtendedLayout ? secondaryTooltipGroup : tooltipGroup).children.Add(citizenTypeTooltip);
+                    tooltipGroup.children.Add(citizenTypeTooltip);
                 }
 
                 if (modSettings.ShowCitizenWealth)
@@ -79,7 +79,7 @@ namespace ExtendedTooltip.TooltipBuilder
                         value = $"{wealthLabel}: {wealthValue}",
                         color = tooltipColor,
                     };
-                    (modSettings.UseExtendedLayout ? secondaryTooltipGroup : tooltipGroup).children.Add(wealthTooltip);
+                    tooltipGroup.children.Add(wealthTooltip);
                 }
                 
             }

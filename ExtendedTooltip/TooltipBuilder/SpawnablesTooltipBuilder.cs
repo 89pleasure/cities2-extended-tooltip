@@ -33,7 +33,7 @@ namespace ExtendedTooltip.TooltipBuilder
             UnityEngine.Debug.Log($"Created SchoolTooltipBuilder.");
         }
 
-        public void Build(ToolBaseSystem activeTool, bool IsMixed, Entity entity, Entity prefab, int buildingLevel, int currentCondition, int levelingCost, SpawnableBuildingData spawnableBuildingData, CitizenHappinessParameterData citizenHappinessParameters, TooltipGroup tooltipGroup, TooltipGroup secondaryTooltipGroup)
+        public void Build(ToolBaseSystem activeTool, Entity entity, Entity prefab, int buildingLevel, int currentCondition, int levelingCost, SpawnableBuildingData spawnableBuildingData, CitizenHappinessParameterData citizenHappinessParameters, TooltipGroup tooltipGroup)
         {
             m_ModSettings = m_ExtendedTooltipSystem.m_LocalSettings.ModSettings;
             if (m_ModSettings.ShowGrowablesHousehold == false && m_ModSettings.ShowGrowablesHouseholdDetails == false && m_ModSettings.ShowGrowablesLevel == false && m_ModSettings.ShowGrowablesLevelDetails == false && m_ModSettings.ShowGrowablesRent == false)
@@ -66,7 +66,7 @@ namespace ExtendedTooltip.TooltipBuilder
                     icon = "Media/Game/Icons/Zones.svg",
                     value = finalZoneName,
                 };
-                (m_ModSettings.UseExtendedLayout ? secondaryTooltipGroup : tooltipGroup).children.Add(zoneTooltip);
+                tooltipGroup.children.Add(zoneTooltip);
             }
 
             if (m_ModSettings.ShowGrowablesLevel)
@@ -96,7 +96,7 @@ namespace ExtendedTooltip.TooltipBuilder
                     value = $"{buildingLevelLabel}: {buildingLevelValue}",
                     color = buildingLevelColor
                 };
-                (m_ModSettings.UseExtendedLayout && IsMixed ? secondaryTooltipGroup : tooltipGroup).children.Add(levelTooltip);
+                tooltipGroup.children.Add(levelTooltip);
             }
 
             // LAND VALUE TOOLTIP
@@ -118,7 +118,7 @@ namespace ExtendedTooltip.TooltipBuilder
                         icon = "Media/Game/Icons/LandValue.svg",
                         color = landValueTooltipColor
                     };
-                    (m_ModSettings.UseExtendedLayout && IsMixed ? secondaryTooltipGroup : tooltipGroup).children.Add(landValueTooltip);
+                    tooltipGroup.children.Add(landValueTooltip);
                 }
             }
 
@@ -143,7 +143,7 @@ namespace ExtendedTooltip.TooltipBuilder
                         value = finalInfoString,
                         color = householdTooltipColor
                     };
-                    (m_ModSettings.UseExtendedLayout && IsMixed ? secondaryTooltipGroup : tooltipGroup).children.Add(householdTooltip);
+                    tooltipGroup.children.Add(householdTooltip);
                 }
 
                 if (m_ModSettings.ShowGrowablesHouseholdWealth && activeTool is DefaultToolSystem && householdsResult.Length > 0)
@@ -168,7 +168,7 @@ namespace ExtendedTooltip.TooltipBuilder
                         value = $"{wealthLabel}: {wealthValue}",
                         color = tooltipColor,
                     };
-                    (m_ModSettings.UseExtendedLayout ? secondaryTooltipGroup : tooltipGroup).children.Add(wealthTooltip);
+                    tooltipGroup.children.Add(wealthTooltip);
                 }
 
                 if (m_ModSettings.ShowGrowablesBalance && householdBalances.Count > 0)
@@ -200,7 +200,7 @@ namespace ExtendedTooltip.TooltipBuilder
                         color = (householdCount > 1 && minBalance < 0 && maxBalance < 0) || (householdCount == 1 && finalBalance < 0) ? TooltipColor.Error : TooltipColor.Info,
                     };
 
-                    (m_ModSettings.UseExtendedLayout ? secondaryTooltipGroup : tooltipGroup).children.Add(balanceTooltip);
+                    tooltipGroup.children.Add(balanceTooltip);
                 }
 
                 if (m_ModSettings.ShowGrowablesRent == true && householdRents.Count > 0)
@@ -231,7 +231,7 @@ namespace ExtendedTooltip.TooltipBuilder
                         color = TooltipColor.Info,
                     };
 
-                    (m_ModSettings.UseExtendedLayout ? secondaryTooltipGroup : tooltipGroup).children.Add(rentTooltip);
+                    tooltipGroup.children.Add(rentTooltip);
                 }
             }
         }
