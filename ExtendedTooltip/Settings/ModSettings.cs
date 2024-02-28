@@ -24,7 +24,6 @@ namespace ExtendedTooltip.Settings
         // GENERAL
         public bool ShowEfficiency { get; set; } = true;
         public bool ShowLandValue { get; set; } = true;
-        public bool ShowMail { get; set; } = true;
 
         // COMPANY
         public bool ShowCompany { get; set; } = true;
@@ -90,6 +89,14 @@ namespace ExtendedTooltip.Settings
         public bool ShowVehiclePostvan { get; set; } = true;
         public bool ShowVehicleGarbageTruck { get; set; } = true;
         public bool ShowVehiclePassengerDetails { get; set; } = true;
+
+        // POSTAL
+        public bool ShowMailProducers { get; set; } = true;
+        public bool ShowMailResources { get; set; } = true;
+        public bool ShowMailVehicles { get; set; } = true;
+        public bool ShowMailStorage { get; set; } = true;
+        public bool ShowMailFunctions { get; set; } = true;
+        public bool ShowMailBoxes { get; set; } = true;
 
         // CONVERSIONS TO EXTENDED TOOLTIP MODEL
         public static implicit operator ExtendedTooltipModel(ModSettings settings)

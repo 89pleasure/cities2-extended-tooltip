@@ -219,6 +219,22 @@ namespace ExtendedTooltip.Systems
                 { "vehiclePostvanDescription", m_CustomTranslationSystem.GetTranslation("setting.vehicle.postvan.description", "Shows mail capacity of the selected post vans.")},
                 { "vehiclePassengerDetail", m_CustomTranslationSystem.GetLocalGameTranslation("SelectedInfoPanel.PASSENGERS_TITLE", "Passengers")},
                 { "vehiclePassengerDetailDescription", m_CustomTranslationSystem.GetTranslation("setting.vehicle.passenger_detail.description", "Shows detailed information about the passengers of the selected vehicle.")},
+
+                // POSTAL
+                { "postal", m_CustomTranslationSystem.GetLocalGameTranslation("Services.NAME[Post]", "Postal")},
+                { "mailProducers", m_CustomTranslationSystem.GetTranslation("setting.mail.producers", "Mail Producers")},
+                { "mailProducersDescription", m_CustomTranslationSystem.GetTranslation("setting.mail.producers.description", "Shows information about mail a building wants to send (unsorted mail) and expects to receive (local mail).")},
+                { "mailResources", m_CustomTranslationSystem.GetTranslation("setting.mail.resources", "Mail Resources")},
+                { "mailResourcesDescription", m_CustomTranslationSystem.GetTranslation("setting.mail.resources.description", "Shows all mail related resources (unsorted, global and local) stored at the post service building.")},
+                { "mailVehicles", m_CustomTranslationSystem.GetTranslation("setting.mail.vehicles", "Mail Vehicles")},
+                { "mailVehiclesDescription", m_CustomTranslationSystem.GetTranslation("setting.mail.vehicles.description", "Shows info about the owned transport vehicles (vans and trucks) at a post service building.")},
+                { "mailStorage", m_CustomTranslationSystem.GetTranslation("setting.mail.storage", "Mail Storage")},
+                { "mailStorageDescription", m_CustomTranslationSystem.GetTranslation("setting.mail.storage.description", "Shows the percentage of storage, for all kind of mail (summed up), at post service building.")},
+                { "mailFunctions", m_CustomTranslationSystem.GetTranslation("setting.mail.functions", "Mail Sorting")},
+                { "mailFunctionsDescription", m_CustomTranslationSystem.GetTranslation("setting.mail.functions.description", "Shows the percentage of sorting activity at the post sorting building (either full speed or nothing).")},
+                { "mailBoxes", m_CustomTranslationSystem.GetTranslation("setting.mail.mailboxes", "Mail-Boxes")},
+                { "mailBoxesDescription", m_CustomTranslationSystem.GetTranslation("setting.mail.mailboxes.description", "Shows fullness of mail-boxes with unsorted mail ready for collecting (post-offices also have one).")},
+
             };
         }
     }

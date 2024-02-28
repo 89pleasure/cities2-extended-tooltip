@@ -7,6 +7,7 @@ using Unity.Entities;
 using System.Globalization;
 using Game.Economy;
 using Game.Vehicles;
+using System;
 
 namespace ExtendedTooltip.TooltipBuilder
 {
@@ -18,7 +19,7 @@ namespace ExtendedTooltip.TooltipBuilder
             UnityEngine.Debug.Log($"Created MailTooltipBuilder.");
         }
 
-        public void Build(Entity selectedEntity, Entity prefab, TooltipGroup tooltipGroup)
+        public void BuildForProducer(Entity selectedEntity, Entity prefab, TooltipGroup tooltipGroup)
         {
 
             // MAIL PRODUCER
@@ -33,7 +34,7 @@ namespace ExtendedTooltip.TooltipBuilder
                 if (sending > 80 || receiving > 80) mailColor = TooltipColor.Error;
                 StringTooltip mailTooltip = new()
                 {
-                    icon = "Media/Game/Icons/PostService.svg",
+                    icon = "Media/Game/Icons/Journal.svg",
                     value = m_CustomTranslationSystem.GetTranslation("mail.tooltip",
                         $"Mail out: {sendingValue}, in: {receivingValue}",
                         "RECEIVING", receivingValue,
@@ -42,9 +43,15 @@ namespace ExtendedTooltip.TooltipBuilder
                 };
                 tooltipGroup.children.Add(mailTooltip);
             }
+        }
 
+        public void BuildForMailService(Entity selectedEntity, Entity prefab, TooltipGroup tooltipGroup,
+            bool showResourceStats = true, bool showVehicleStats = true,
+            bool showStorageStats = true, bool showFunctionStats = true)
+        {
+
+            // count mail related resources for selected entity
             int localMail = 0, outgoingMail = 0, unsortedMail = 0;
-            // POSTAL RESOURCES STORED AT ENTITY
             if (m_EntityManager.TryGetBuffer(selectedEntity, true, out DynamicBuffer<Resources> resources))
             {
                 // Both ways work, keep it commented for documentation purpose
@@ -60,33 +67,33 @@ namespace ExtendedTooltip.TooltipBuilder
                     if (resources[i].m_Resource == Resource.UnsortedMail)
                         unsortedMail += resources[i].m_Amount;
                 }
-                if (localMail != 0)
+                if (showResourceStats && localMail != 0)
                 {
                     tooltipGroup.children.Add(new StringTooltip()
                     {
-                        icon = "Media/Game/Icons/PostService.svg",
+                        icon = "Media/Game/Resources/LocalMail.svg",
                         value = m_CustomTranslationSystem.GetTranslation(
                             "mail.local", $"Local: {localMail}",
                             "LOCAL", localMail.ToString("D", CultureInfo.InvariantCulture)),
                         color = TooltipColor.Info,
                     });
                 }
-                if (outgoingMail != 0)
+                if (showResourceStats && outgoingMail != 0)
                 {
                     tooltipGroup.children.Add(new StringTooltip()
                     {
-                        icon = "Media/Game/Icons/PostService.svg",
+                        icon = "Media/Game/Resources/OutgoingMail.svg",
                         value = m_CustomTranslationSystem.GetTranslation(
                             "mail.outgoing", $"Outgoing: {outgoingMail}",
                             "OUTGOING", outgoingMail.ToString("D", CultureInfo.InvariantCulture)),
                         color = TooltipColor.Info,
                     });
                 }
-                if (unsortedMail != 0)
+                if (showResourceStats && unsortedMail != 0)
                 {
                     tooltipGroup.children.Add(new StringTooltip()
                     {
-                        icon = "Media/Game/Icons/PostService.svg",
+                        icon = "Media/Game/Resources/UnsortedMail.svg",
                         value = m_CustomTranslationSystem.GetTranslation(
                             "mail.unsorted", $"Unsorted: {unsortedMail}",
                             "UNSORTED", unsortedMail.ToString("D", CultureInfo.InvariantCulture)),
@@ -115,102 +122,115 @@ namespace ExtendedTooltip.TooltipBuilder
                     }
                 }
 
-                int vansUsed = 0, trucksUsed = 0;
-                // Process all owned vehicles to check which ones are doing work
-                if (m_EntityManager.TryGetBuffer(selectedEntity, true, out DynamicBuffer<OwnedVehicle> vehicles))
+                if (showStorageStats)
                 {
-                    for (int j = 0; j < vehicles.Length; j++)
-                    {
-                        var vehicle = m_EntityManager.GetComponentData<PrefabRef>(vehicles[j].m_Vehicle).m_Prefab;
-                        if (m_EntityManager.TryGetComponent(vehicle, out DeliveryTruckData _)) trucksUsed += 1;
-                        else if (m_EntityManager.TryGetComponent(vehicle, out PostVanData _)) vansUsed += 1;
-                    }
-                }
-
-                // VANS/TRUCKS USE/TOTAL (ToDo: also add guests?)
-                if (accumulated.m_PostVanCapacity > 0 || accumulated.m_PostTruckCapacity > 0)
-                {
-                    string vansUsedValue = vansUsed.ToString("D", CultureInfo.InvariantCulture);
-                    string trucksUsedValue = trucksUsed.ToString("D", CultureInfo.InvariantCulture);
-                    string vansTotalValue = accumulated.m_PostVanCapacity.ToString("D", CultureInfo.InvariantCulture);
-                    string trucksTotalValue = accumulated.m_PostTruckCapacity.ToString("D", CultureInfo.InvariantCulture);
-                    string vansString = m_CustomTranslationSystem.GetTranslation(
-                        "mail.vans", $"Vans: {vansUsedValue}/{vansTotalValue}",
-                        "VANS_USED", vansUsedValue, "VANS_TOTAL", vansTotalValue);
-                    string trucksString = m_CustomTranslationSystem.GetTranslation(
-                        "mail.trucks", $"Trucks: {trucksUsedValue}/{trucksTotalValue}",
-                        "TRUCKS_USED", trucksUsedValue, "TRUCKS_TOTAL", trucksTotalValue);
-                    string vehiclesString;
-                    // Only show relevant information
-                    if (accumulated.m_PostVanCapacity == 0)
-                    {
-                        vehiclesString = trucksString;
-                    }
-                    else if (accumulated.m_PostTruckCapacity == 0)
-                    {
-                        vehiclesString = vansString;
-                    }
-                    else
-                    {
-                        vehiclesString = m_CustomTranslationSystem.GetTranslation("mail.vehicles",
-                            $"{vansString}, {trucksString}", "VANS", vansString, "TRUCKS", trucksString);
-                    }
+                    // STORAGE USAGE PERCENTAGE
+                    float percentStorage = 100f * (localMail + outgoingMail + unsortedMail) / accumulated.m_MailCapacity;
+                    string percentStorageValue = ((int)Math.Round(percentStorage))
+                        .ToString("D", CultureInfo.InvariantCulture);
+                    var storageColor = TooltipColor.Info;
+                    if (percentStorage > 50f) storageColor = TooltipColor.Warning;
+                    if (percentStorage > 80f) storageColor = TooltipColor.Error;
                     tooltipGroup.children.Add(new StringTooltip()
                     {
                         icon = "Media/Game/Icons/PostService.svg",
-                        value = vehiclesString,
-                        color = TooltipColor.Info,
-                    });
-
-                }
-
-                // STORAGE USAGE PERCENTAGE
-                float percentStorage = 100f * (localMail + outgoingMail + unsortedMail) / accumulated.m_MailCapacity;
-                string percentStorageValue = percentStorage.ToString("F", CultureInfo.InvariantCulture);
-                var storageColor = TooltipColor.Info;
-                if (percentStorage > 75f) storageColor = TooltipColor.Warning;
-                if (percentStorage > 95f) storageColor = TooltipColor.Error;
-                tooltipGroup.children.Add(new StringTooltip()
-                {
-                    icon = "Media/Game/Icons/PostService.svg",
-                    value = m_CustomTranslationSystem.GetTranslation("mail.storage",
-                        $"Storage: {percentStorageValue}%", "STORAGE", percentStorageValue),
-                    color = storageColor
-                });
-
-                // SORTING USAGE PERCENTAGE
-                if (accumulated.m_SortingRate > 0)
-                {
-                    string percentSortingValue = facility.m_ProcessingFactor.ToString("F", CultureInfo.InvariantCulture);
-                    tooltipGroup.children.Add(new StringTooltip()
-                    {
-                        icon = "Media/Game/Icons/PostService.svg",
-                        value = m_CustomTranslationSystem.GetTranslation("mail.sorting",
-                            $"Sorting: {percentSortingValue}%", "SORTING", percentSortingValue),
+                        value = m_CustomTranslationSystem.GetTranslation("mail.storage",
+                            $"Storage: {percentStorageValue}%", "STORAGE", percentStorageValue),
                         color = storageColor
                     });
                 }
 
-            }
+                if (showVehicleStats)
+                {
+                    int vansUsed = 0, trucksUsed = 0;
+                    // Process all owned vehicles to check which ones are doing work
+                    if (m_EntityManager.TryGetBuffer(selectedEntity, true, out DynamicBuffer<OwnedVehicle> vehicles))
+                    {
+                        for (int j = 0; j < vehicles.Length; j++)
+                        {
+                            var vehicle = m_EntityManager.GetComponentData<PrefabRef>(vehicles[j].m_Vehicle).m_Prefab;
+                            if (m_EntityManager.HasComponent<DeliveryTruckData>(vehicle)) trucksUsed += 1;
+                            else if (m_EntityManager.HasComponent<PostVanData>(vehicle)) vansUsed += 1;
+                        }
+                    }
+                    // VANS/TRUCKS USE/TOTAL (ToDo: also add guests?)
+                    if (accumulated.m_PostVanCapacity > 0 || accumulated.m_PostTruckCapacity > 0)
+                    {
+                        string vansUsedValue = vansUsed.ToString("D", CultureInfo.InvariantCulture);
+                        string trucksUsedValue = trucksUsed.ToString("D", CultureInfo.InvariantCulture);
+                        string vansTotalValue = accumulated.m_PostVanCapacity.ToString("D", CultureInfo.InvariantCulture);
+                        string trucksTotalValue = accumulated.m_PostTruckCapacity.ToString("D", CultureInfo.InvariantCulture);
+                        string vansString = m_CustomTranslationSystem.GetTranslation(
+                            "mail.vans", $"Vans: {vansUsedValue}/{vansTotalValue}",
+                            "VANS_USED", vansUsedValue, "VANS_TOTAL", vansTotalValue);
+                        string trucksString = m_CustomTranslationSystem.GetTranslation(
+                            "mail.trucks", $"Trucks: {trucksUsedValue}/{trucksTotalValue}",
+                            "TRUCKS_USED", trucksUsedValue, "TRUCKS_TOTAL", trucksTotalValue);
+                        string vehiclesString;
+                        // Only show relevant information
+                        if (accumulated.m_PostVanCapacity == 0)
+                        {
+                            vehiclesString = trucksString;
+                        }
+                        else if (accumulated.m_PostTruckCapacity == 0)
+                        {
+                            vehiclesString = vansString;
+                        }
+                        else
+                        {
+                            vehiclesString = m_CustomTranslationSystem.GetTranslation("mail.vehicles",
+                                $"{vansString}, {trucksString}", "VANS", vansString, "TRUCKS", trucksString);
+                        }
+                        tooltipGroup.children.Add(new StringTooltip()
+                        {
+                            icon = "Media/Game/Icons/DeliveryVan.svg",
+                            value = vehiclesString,
+                            color = TooltipColor.Info,
+                        });
 
+                    }
+                }
+
+                if (showFunctionStats)
+                {
+                    // SORTING USAGE PERCENTAGE
+                    if (accumulated.m_SortingRate > 0)
+                    {
+                        string percentSortingValue = facility.m_ProcessingFactor
+                            .ToString("D", CultureInfo.InvariantCulture);
+                        tooltipGroup.children.Add(new StringTooltip()
+                        {
+                            icon = "Media/Game/Icons/AdvancedSorting.svg",
+                            value = m_CustomTranslationSystem.GetTranslation("mail.sorting",
+                                $"Sorting: {percentSortingValue}%", "SORTING", percentSortingValue),
+                            color = TooltipColor.Info
+                        });
+                    }
+                }
+
+            }
+        }
+
+        public void BuildForMailBox(Entity selectedEntity, Entity prefab, TooltipGroup tooltipGroup)
+        {
             // MAIL-BOX STORAGE PERCENTAGE
             if (m_EntityManager.TryGetComponent(prefab, out MailBoxData mailbox) &&
                 m_EntityManager.TryGetComponent(selectedEntity, out Game.Routes.MailBox route))
             {
                 float percentStorage = 100f * route.m_MailAmount / mailbox.m_MailCapacity;
-                string percentStorageValue = percentStorage.ToString("F", CultureInfo.InvariantCulture);
+                string percentStorageValue = ((int)Math.Round(percentStorage))
+                    .ToString("D", CultureInfo.InvariantCulture);
                 var storageColor = TooltipColor.Info;
-                if (percentStorage > 75f) storageColor = TooltipColor.Warning;
-                if (percentStorage > 95f) storageColor = TooltipColor.Error;
+                if (percentStorage > 50f) storageColor = TooltipColor.Warning;
+                if (percentStorage > 80f) storageColor = TooltipColor.Error;
                 tooltipGroup.children.Add(new StringTooltip()
                 {
-                    icon = "Media/Game/Icons/PostService.svg",
+                    icon = "Media/Game/Icons/Mail Box.svg",
                     value = m_CustomTranslationSystem.GetTranslation("mail.mailbox",
                         $"Mail-Box: {percentStorageValue}%", "MAILBOX", percentStorageValue),
                     color = storageColor
                 });
             }
-
         }
 
     }

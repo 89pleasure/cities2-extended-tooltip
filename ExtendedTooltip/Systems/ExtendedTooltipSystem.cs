@@ -244,10 +244,24 @@ namespace ExtendedTooltip.Systems
                 return; // don't have any other info. No need to check for other components
             }
 
-            // MAIL TOOLTIP
-            if (modSettings.ShowMail)
+            // TOOLTIP FOR ALL POST PRODUCERS
+            if (modSettings.ShowMailProducers)
             {
-                m_MailTooltipBuilder.Build(selectedEntity, prefab, m_TooltipGroup);
+                m_MailTooltipBuilder.BuildForProducer(selectedEntity, prefab, m_TooltipGroup);
+            }
+            // TOOLTIP FOR OWNED POST VEHICLES
+            if (modSettings.ShowMailResources || modSettings.ShowMailVehicles ||
+                modSettings.ShowMailStorage || modSettings.ShowMailFunctions)
+            {
+                m_MailTooltipBuilder.BuildForMailService(selectedEntity, prefab, m_TooltipGroup,
+                    modSettings.ShowMailResources, modSettings.ShowMailVehicles,
+                    modSettings.ShowMailStorage, modSettings.ShowMailFunctions);
+            }
+            // TOOLTIP FOR ALL MAIL-BOX
+            // E.G. POST-OFFICES ALSO HAVE ONE
+            if (modSettings.ShowMailBoxes)
+            {
+                m_MailTooltipBuilder.BuildForMailBox(selectedEntity, prefab, m_TooltipGroup);
             }
 
             // SPAWNABLES TOOLTIP
