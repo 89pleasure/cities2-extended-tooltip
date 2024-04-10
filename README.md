@@ -12,7 +12,7 @@ Another issue I have faced is the lack of proper credit for my code when it was 
 
 In light of these challenges, I feel compelled to distance myself from the community to safeguard my mental well-being and integrity.
 
-To ensure the continuity of my work, I have appointed an official maintainer for my mods. You can find him under the GitHub profile name [kosch104](https://github.com/kosch104) better known as Mimonsi on PDXMods.
+To ensure the continuity of my work, I have appointed an official maintainer for my mods. You can find him under the GitHub profile name [kosch104](https://github.com/kosch104) better known as [**Mimonsi**](https://mods.paradoxplaza.com/authors/Mimonsi) on PDXMods.
 
 It's important to note that my mod was not banned, but rather voluntarily removed by me. The current representation of all removed mods as banned on PDXMods is inaccurate.
 
