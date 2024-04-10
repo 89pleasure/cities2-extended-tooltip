@@ -1,56 +1,25 @@
-# ExtendedTooltip Mod for Cities Skylines II
+## Resignation from the CS2 Modding Community
 
-This mod adds new informations to the mouse hover tooltip of several entities to the game.
-If you want anything added to the tooltip, please let me know and open an issue.
+Dear Community,
 
-## Requirement
-- [BepInEx v5](https://thunderstore.io/c/cities-skylines-ii/p/BepInEx/BepInExPack/) or v6 bleeding edge
-- [HookUI v0.3.3](https://thunderstore.io/c/cities-skylines-ii/p/CaptainOfCoit/HookUI/)
+With a heavy heart, I am announcing my resignation from the CS2 Modding Community. The decision comes as a result of the increasingly toxic atmosphere within the community, which has become intolerable for me.
 
-I do recommend using the [Thunderstore.io mod manager](https://www.overwolf.com/app/Thunderstore-Thunderstore_Mod_Manager) , or [r2modman](https://thunderstore.io/package/ebkr/r2modman/) for Game Pass users
+Over the past few weeks and months, I have encountered numerous troubling incidents that have prompted me to take this step. These include instances of code theft, the spreading of false information and lies, as well as personal attacks against my character. Particularly distressing was being unfairly labeled as a conspiracy theorist for simply expressing constructive criticism of certain aspects within the modder community.
 
-## Installation
-Simply download the latest release from the [releases page](https://github.com/89pleasure/cities2-extended-tooltip/releases)
-and extract it to your `Cities Skylines II /bepinex/plugins` folder.
+Furthermore, *I have been subjected to legal threats in an attempt to force me to make my code publicly accessible*, which is a stance I cannot condone.
 
-## Current features
-Shows the following information on tooltips:
-- Efficiency
-- Employees
-- Company produces/sells information
-- Citizen: Status, Happiness, State, Education, ect.
-- Schools: Students current/max
-- Public Transport: Waiting passengers, Average waiting time
-- Roads: Length, Upkeep, Conditions
-- Zones: Zone info, Households, Residents, Pets, Rent, Balance ect.
-- Vehicles: Driver, Passengers, Garbage Trucks info, Postvan info
-- many more
+Another issue I have faced is the lack of proper credit for my code when it was utilized by others.
 
-## Community
-If you need any help or are you interested in modding yourself?
-Join our discord community: [https://discord.gg/M9rgRtGcRa](https://discord.gg/M9rgRtGcRa)
+In light of these challenges, I feel compelled to distance myself from the community to safeguard my mental well-being and integrity.
 
-## Pictures
+To ensure the continuity of my work, I have appointed an official maintainer for my mods. You can find him under the GitHub profile name [kosch104](https://github.com/kosch104) better known as Mimonsi on PDXMods.
 
-### Citizen Tooltip
-![Citizen Tooltip](https://i.ibb.co/8mCPZNc/Screenshot-2023-11-12-011304.png)
-- Activity
-- Happiness
-- Education
+It's important to note that my mod was not banned, but rather voluntarily removed by me. The current representation of all removed mods as banned on PDXMods is inaccurate.
 
-### School Tooltip
-![School Tooltip](https://i.ibb.co/zPZG1hf/Screenshot-2023-11-12-011318.png)
-- Efficiency
-- Employees
-- Students
+Despite stepping back, I remain available on the linked Discord and welcome any questions or concerns.
 
-### Company Tooltip
-![Company Tooltip](https://i.ibb.co/yQPmbrn/Screenshot-2023-11-12-011337.png)
-- Efficiency
-- Employees
-- Resource to Sell/Produce
+I express my gratitude to all who have supported me throughout my tenure in the community and seek understanding regarding my decision.
 
-### Road Tooltip
-![Road Tooltip](https://i.ibb.co/fvPCKtB/Screenshot-2023-11-12-011357.png)
-- Length
-- Upkeep /month
+Best regards,
+
+89pleasure
