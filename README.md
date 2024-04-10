@@ -16,7 +16,8 @@ To ensure the continuity of my work, I have appointed an official maintainer for
 
 It's important to note that my mod was not banned, but rather voluntarily removed by me. The current representation of all removed mods as banned on PDXMods is inaccurate.
 
-Despite stepping back, I remain available on the linked Discord and welcome any questions or concerns.
+Despite stepping back, I remain available on the linked [Discord](https://discord.gg/M9rgRtGcRa) and welcome any questions or concerns.
+
 
 I express my gratitude to all who have supported me throughout my tenure in the community and seek understanding regarding my decision.
 
